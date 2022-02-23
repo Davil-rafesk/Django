@@ -8,4 +8,4 @@ def saludo(request):    # A cada función que creamos en el archivo Views se le 
 
 def despedida(request):
 
-    return HttpResponse("Esta vista es la función de despedida.")
+    return HttpResponse("Esta vista es la función de despedida.") # segunda vista.
