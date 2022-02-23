@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.views import saludo, despedida
+from Proyecto1.views import dame_fecha, saludo, despedida, calcula_edad
+
+# <int:agno> es la forma en la que se le pasa un parámetro a unUL, de esta manera se puede hace una página dinámica.
+# <int:edad>/<int:agno> se usa para pasarle 2 parámetros a la URL, ej: http://localhost:8000/edades/50/2036
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("saludo/", saludo),
-    path("despedida/", despedida)
+    path("despedida/", despedida),
+    path("fecha/", dame_fecha),
+    path("edades/<int:edad>/<int:agno>", calcula_edad)
 ]
