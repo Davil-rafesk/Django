@@ -2,9 +2,26 @@ from datetime import datetime
 from django.template import Template, Context
 from django.http import HttpResponse
 
+class Persona(object): # Defino la clase Persona, dentro de esta creo un Constructor al que le doy las variables por POO.
+
+    def __init__(self, nombre, apellido):
+
+        self.nombre = nombre
+
+        self.apellido = apellido
+
 
 def saludo(request):    # A cada función que creamos en el archivo Views se le denomina vista. 
                         # El objetivo es devolver una respuesta donde aparezca el texto.
+    p1 = Persona("Estudiante Mauricio", "Dávila")
+    
+    #nombre = "Mauricio"
+
+    #apellido = "Dávila"
+
+    ahora = datetime.now()
+
+    temas_curso = ["Plantillas", "Modelos","Formularios","Vistas","Despliegues"]
 
     doc_externo = open("E:/respaldoC/Programación/Django/ProyectosDjango/Proyecto1/Proyecto1/Plantillas/mi_plantilla.html")
 
@@ -12,7 +29,7 @@ def saludo(request):    # A cada función que creamos en el archivo Views se le 
 
     doc_externo.close()
 
-    ctx = Context()
+    ctx = Context({"nombre_pesona":p1.nombre, "apellido_persona":p1.apellido,"momento_ahora":ahora, "Temas":temas_curso})
 
     domumento = plt.render(ctx)
 

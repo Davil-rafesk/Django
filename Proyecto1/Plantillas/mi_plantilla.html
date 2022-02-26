@@ -3,5 +3,28 @@
     <h1 style="color: red">
     Hola gente, esta es la primera plantilla que estoy realizando con Django.
     </h1>
-    </body>
-    </html>
+    <p>Introduzco mi nombe por medio de variables y diccionarios en contexto: {{nombre_pesona.upper}} {{apellido_persona.lower}}.</p>
+    <p>Esta secci&oacute;n es la parte de las plantillas que puedo usar con la variable hora"now()": {{momento_ahora}}.</p>
+    <p>La misma acci&oacute;n de arriba pero esta vez utilizando la nomenclatura del punto en POO: {{momento_ahora.day}}/{{momento_ahora.month}}/{{momento_ahora.year}}.</p>
+    <p>Aqu&iacute; se utiliza una lista dento de un diccionario en el Contexto, se puede utilizar la nomenclatura del punto para así acceder a cada parte de la lista por separado: {{Temas.0}}, miren aqu&iacute; {{Temas.2}}</p>
+    <p>En esta parte se utiliza una lista pero creada con un ciclo <strong>For en Django</strong>, para que aparezca como <strong>lista</strong> y no como elementos separados.</p>
+    <p><strong>Temas del cuso:</strong></p>
+    <p>
+        <ul><!-- ul es la forma de hacer una lista. li es la lista directamente -->
+        {% if Temas %}
+            {% for elTema in Temas %}
+
+                <li>{{elTema}}</li>
+
+            {% endfor %}
+        {% else %}
+            <p>No hay elementos para mostar.</p>
+        {% endif %}
+        </ul>
+    </p>
+
+
+
+
+</body>
+</html>
