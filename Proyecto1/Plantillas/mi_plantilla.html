@@ -3,7 +3,27 @@
     <h1 style="color: red">
     Hola gente, esta es la primera plantilla que estoy realizando con Django.
     </h1>
+
+    {% if nombre_pesona == "Estudiante Mauricio" %}
+
+        <p>Se mostrar&aacute; el nombre dado a que estoy utilizando un "if" para que muestre este mensaje en caso de que sea el nombre correcto.</p>
+
+    {% else %}
+
+        <p>Si la condici&oacute;n no se cumple, aparecer&aacute; esta mensaje, haciendo as&iacute; que funcione el if y el else.</p>
+
+    {% endif %}
+
+    {# Como esto es una plantilla que se usa en Django, se pueden hacer comentarios normalitos como si fuea Python, peo eso si, dento de las llaves. #}
+
+    {% comment %}  Aquí entra un comentario de 
+2 líneas sin ningún poblma, todo gracias a esta forma de comentar en Django.
+
+    {% endcomment %}
+
+
     <p>Introduzco mi nombe por medio de variables y diccionarios en contexto: {{nombre_pesona.upper}} {{apellido_persona.lower}}.</p>
+    <p>Esto es exactamente lo que se realiz&oacute; arriba pero hecho con el s&iacute;mbolo | y no la nomenclatura del punto: {{nombre_pesona|lower}} {{apellido_persona|upper}}.</p>
     <p>Esta secci&oacute;n es la parte de las plantillas que puedo usar con la variable hora"now()": {{momento_ahora}}.</p>
     <p>La misma acci&oacute;n de arriba pero esta vez utilizando la nomenclatura del punto en POO: {{momento_ahora.day}}/{{momento_ahora.month}}/{{momento_ahora.year}}.</p>
     <p>Aqu&iacute; se utiliza una lista dento de un diccionario en el Contexto, se puede utilizar la nomenclatura del punto para así acceder a cada parte de la lista por separado: {{Temas.0}}, miren aqu&iacute; {{Temas.2}}</p>

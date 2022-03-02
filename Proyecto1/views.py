@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.template import Template, Context
 from django.http import HttpResponse
+from django.template import loader
 
 class Persona(object): # Defino la clase Persona, dentro de esta creo un Constructor al que le doy las variables por POO.
 
@@ -23,15 +24,19 @@ def saludo(request):    # A cada función que creamos en el archivo Views se le 
 
     temas_curso = ["Plantillas", "Modelos","Formularios","Vistas","Despliegues"]
 
-    doc_externo = open("E:/respaldoC/Programación/Django/ProyectosDjango/Proyecto1/Proyecto1/Plantillas/mi_plantilla.html")
+    #doc_externo = open("E:/respaldoC/Programación/Django/ProyectosDjango/Proyecto1/Proyecto1/Plantillas/mi_plantilla.html")
 
-    plt = Template(doc_externo.read())
+    #plt = Template(doc_externo.read())
 
-    doc_externo.close()
+    #doc_externo.close()
 
-    ctx = Context({"nombre_pesona":p1.nombre, "apellido_persona":p1.apellido,"momento_ahora":ahora, "Temas":temas_curso})
+    doc_externo = loader.get_template("mi_plantilla.html")
 
-    domumento = plt.render(ctx)
+    #ctx = Context({"nombre_pesona":p1.nombre, "apellido_persona":p1.apellido,"momento_ahora":ahora, "Temas":temas_curso})
+
+    ctx = {"nombre_pesona":p1.nombre, "apellido_persona":p1.apellido,"momento_ahora":ahora, "Temas":temas_curso}
+
+    domumento = doc_externo.render(ctx)
 
     return HttpResponse(domumento)
 
