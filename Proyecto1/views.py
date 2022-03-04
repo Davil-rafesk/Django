@@ -39,7 +39,21 @@ def saludo(request):    # A cada función que creamos en el archivo Views se le 
 
     return render(request, "mi_plantilla.html", {"nombre_pesona":p1.nombre, "apellido_persona":p1.apellido,"momento_ahora":ahora, "Temas":temas_curso})
 
+def plantillas(request):
+
+    fecha_actual = datetime.now()
+
+    return render(request, "hija1.html", {"momento_ahora":fecha_actual})
+
+def plantillasDos(request):
+
+    fecha_actual = datetime.now()
+
+    return render(request, "hija2.html", {"momento_ahora":fecha_actual})
+
+
 def despedida(request):
+
 
     return HttpResponse("Esta vista es la función de despedida.") # segunda vista.
 
