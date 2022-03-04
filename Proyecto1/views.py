@@ -1,7 +1,8 @@
 from datetime import datetime
 from django.template import Template, Context
 from django.http import HttpResponse
-from django.template import loader
+from django.template.loader import get_template
+from django.shortcuts import render
 
 class Persona(object): # Defino la clase Persona, dentro de esta creo un Constructor al que le doy las variables por POO.
 
@@ -30,15 +31,13 @@ def saludo(request):    # A cada función que creamos en el archivo Views se le 
 
     #doc_externo.close()
 
-    doc_externo = loader.get_template("mi_plantilla.html")
+    #doc_externo = loader.get_template("mi_plantilla.html")
 
     #ctx = Context({"nombre_pesona":p1.nombre, "apellido_persona":p1.apellido,"momento_ahora":ahora, "Temas":temas_curso})
 
-    ctx = {"nombre_pesona":p1.nombre, "apellido_persona":p1.apellido,"momento_ahora":ahora, "Temas":temas_curso}
+    #domumento = doc_externo.render(ctx)
 
-    domumento = doc_externo.render(ctx)
-
-    return HttpResponse(domumento)
+    return render(request, "mi_plantilla.html", {"nombre_pesona":p1.nombre, "apellido_persona":p1.apellido,"momento_ahora":ahora, "Temas":temas_curso})
 
 def despedida(request):
 
